@@ -115,5 +115,3 @@ GROUP BY uhi.State_Name, City
 ORDER BY 3 DESC
 LIMIT 10
 ;
-
-#There are tons of medians at 300K. Alex wonders if there is a cap at $300k and anything above is not reported. Might be a side task to look at the source data and see how it was captured
