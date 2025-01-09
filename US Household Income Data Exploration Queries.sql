@@ -23,7 +23,7 @@ JOIN us_household_income_statistics uhis
 	ON uhi.id = uhis.id
 ;
 
--- It would be sensible to perform left join on income table since stats table contains more rows
+-- It would be sensible to perform a left join on income table since stats table contains more rows
 -- Discrepancy is due to some rows from income table not importing correctly
 SELECT *
 FROM us_household_income uhi
