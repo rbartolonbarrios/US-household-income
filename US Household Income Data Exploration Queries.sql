@@ -23,7 +23,7 @@ JOIN us_household_income_statistics uhis
 	ON uhi.id = uhis.id
 ;
 
--- Opting to perform a left join on income table since stats table contains more rows
+-- It would be sensible to perform left join on income table since stats table contains more rows
 -- Discrepancy is due to some rows from income table not importing correctly
 SELECT *
 FROM us_household_income uhi
@@ -31,7 +31,7 @@ LEFT JOIN us_household_income_statistics uhis
 	ON uhi.id = uhis.id
 ;
 
--- We can also perform a right join and filter for blanks to determine where missing values are present
+-- Performing a right join and filtering for blanks to determine where missing values are present
 SELECT *
 FROM us_household_income uhi
 RIGHT JOIN us_household_income_statistics uhis
@@ -40,16 +40,15 @@ WHERE uhi.County IS NULL
 ;
 #
 
--- 240 records from income table are null. We can either amend missing values on Excel or consider deleting these rows. 
--- Opting to perform an inner join
-
+-- 240 records from income table are null. We can either amend missing values on Excel or consider deleting these rows 
+-- Opting to proceed using an inner join instead
 SELECT *
 FROM us_household_income uhi
 INNER JOIN us_household_income_statistics uhis
 	ON uhi.id = uhis.id
 ;
 
--- Some zero values rows observed in Mean, Median, Stdev columns. 
+-- Some zero values rows observed in Mean, Median, Stdev columns
 -- Opting to exclude these rows
 SELECT *
 FROM us_household_income uhi
